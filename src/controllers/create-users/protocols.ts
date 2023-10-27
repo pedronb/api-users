@@ -10,7 +10,7 @@ export interface ICreateUserController {
 export interface CreateUserParams {
   firstName: string;
   lastName: string;
-  emial: string;
+  email: string;
   password: string;
 }
 
