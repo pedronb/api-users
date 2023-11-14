@@ -1,5 +1,5 @@
 import { User } from "../../models/user";
-import { badRequest, ok } from "../helpers";
+import { badRequest, ok, serverError } from "../helpers";
 import { HttpRequest, HttpResponse, IController } from "../protocols";
 import { IDeleteUserRepository } from "./protocols";
 
@@ -19,10 +19,7 @@ export class DeleteUserController implements IController {
 
       return ok<User>(user);
     } catch (error) {
-      return {
-        statusCode: 500,
-        body: "Something went wrong.",
-      };
+      return serverError();
     }
   }
 }

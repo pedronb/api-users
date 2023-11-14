@@ -1,5 +1,5 @@
 import { User } from "../../models/user";
-import { badRequest, created } from "../helpers";
+import { badRequest, created, serverError } from "../helpers";
 import { HttpRequest, HttpResponse, IController } from "../protocols";
 import { CreateUserParams, ICreateUserRepository } from "./protocols";
 
@@ -38,10 +38,7 @@ export class CreateUserController implements IController {
 
       return created<User>(user);
     } catch (error) {
-      return {
-        statusCode: 500,
-        body: "Something went wrong!",
-      };
+      return serverError();
     }
   }
 }

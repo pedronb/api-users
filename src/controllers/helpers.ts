@@ -20,3 +20,10 @@ export const created = <T>(body: T) => {
     body,
   };
 };
+
+export const serverError = () => {
+  return {
+    statusCode: 500,
+    body: "Something went wrong.",
+  };
+};
