@@ -1,12 +1,12 @@
 import { User } from "../../models/user";
 import { ok } from "../helpers";
-import { IController } from "../protocols";
+import { HttpResponse, IController } from "../protocols";
 import { IGetUsersRepository } from "./protocols";
 
 export class GetUsersController implements IController {
   constructor(private readonly getUsersRepository: IGetUsersRepository) {}
 
-  async handle() {
+  async handle(): Promise<HttpResponse<User[] | string>> {
     try {
       // validar requisição
       // direcionar chamada para o Repository
