@@ -1,29 +1,30 @@
+import { HttpStatusCodeEnum } from "./enums/HttpStatusCodeEnum";
 import { HttpResponse } from "./protocols";
 
 export const badRequest = (message: string): HttpResponse<string> => {
   return {
-    statusCode: 400,
+    statusCode: HttpStatusCodeEnum.BAD_REQUEST,
     body: message,
   };
 };
 
 export const ok = <T>(body: T) => {
   return {
-    statusCode: 200,
+    statusCode: HttpStatusCodeEnum.OK,
     body,
   };
 };
 
 export const created = <T>(body: T) => {
   return {
-    statusCode: 201,
+    statusCode: HttpStatusCodeEnum.CREATED,
     body,
   };
 };
 
 export const serverError = () => {
   return {
-    statusCode: 500,
+    statusCode: HttpStatusCodeEnum.SERVER_ERROR,
     body: "Something went wrong.",
   };
 };

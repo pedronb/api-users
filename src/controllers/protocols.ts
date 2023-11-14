@@ -1,5 +1,7 @@
+import { HttpStatusCodeEnum } from "./enums/HttpStatusCodeEnum";
+
 export interface HttpResponse<T> {
-  statusCode: number;
+  statusCode: HttpStatusCodeEnum;
   body: T;
 }
 
