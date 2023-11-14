@@ -1,3 +1,5 @@
+import { User } from "../../models/user";
+import { ok } from "../helpers";
 import { IController } from "../protocols";
 import { IGetUsersRepository } from "./protocols";
 
@@ -10,10 +12,7 @@ export class GetUsersController implements IController {
       // direcionar chamada para o Repository
       const users = await this.getUsersRepository.getUsers();
 
-      return {
-        statusCode: 200,
-        body: users,
-      };
+      return ok<User[]>(users);
     } catch (error) {
       return {
         statusCode: 500,
